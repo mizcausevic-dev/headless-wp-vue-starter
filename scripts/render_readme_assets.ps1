@@ -50,10 +50,11 @@ try {
 
     $edge = Get-EdgePath
     $targets = @(
-        @{ Url = "http://127.0.0.1:$port/"; File = "01-overview-proof.png"; Size = "1600,1320" },
-        @{ Url = "http://127.0.0.1:$port/architecture-lane"; File = "02-architecture-lane-proof.png"; Size = "1600,1380" },
-        @{ Url = "http://127.0.0.1:$port/content-flow"; File = "03-content-flow-proof.png"; Size = "1600,1260" },
-        @{ Url = "http://127.0.0.1:$port/verification"; File = "04-verification-proof.png"; Size = "1600,1120" }
+        @{ Url = "http://127.0.0.1:$port/"; File = "01-overview-proof.png"; Size = "1880,2120" },
+        @{ Url = "http://127.0.0.1:$port/architecture-lane"; File = "02-architecture-lane-proof.png"; Size = "1880,2220" },
+        @{ Url = "http://127.0.0.1:$port/content-flow"; File = "03-content-flow-proof.png"; Size = "1700,1220" },
+        @{ Url = "http://127.0.0.1:$port/docs"; File = "04-docs-proof.png"; Size = "1880,1860" },
+        @{ Url = "http://127.0.0.1:$port/verification"; File = "05-verification-proof.png"; Size = "1700,1140" }
     )
 
     foreach ($target in $targets) {

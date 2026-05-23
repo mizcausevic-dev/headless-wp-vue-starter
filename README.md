@@ -34,7 +34,8 @@ Headless CMS projects often look clean in a pitch deck and brittle in production
 ![Overview](./screenshots/01-overview-proof.png)
 ![Architecture lane](./screenshots/02-architecture-lane-proof.png)
 ![Content flow](./screenshots/03-content-flow-proof.png)
-![Verification](./screenshots/04-verification-proof.png)
+![Integration docs](./screenshots/04-docs-proof.png)
+![Verification](./screenshots/05-verification-proof.png)
 
 ## Starter Export
 

@@ -22,6 +22,8 @@ export interface StarterFile {
   path: string;
   purpose: string;
   stack: string;
+  category: "nuxt" | "server-route" | "vue" | "wordpress" | "schema";
+  raw: string;
 }
 
 export const architectureNodes: ArchitectureNode[] = [
@@ -114,26 +116,66 @@ export const starterFilesData: StarterFile[] = [
   {
     path: "starter/nuxt/nuxt.config.ts",
     purpose: "Define runtime config, route rules, and WPGraphQL endpoint wiring for Nuxt.",
-    stack: "Nuxt 3 / Vue"
+    stack: "Nuxt 3 / Vue",
+    category: "nuxt",
+    raw: `export default defineNuxtConfig({
+  runtimeConfig: {
+    public: {
+      wpgraphqlEndpoint: process.env.NUXT_PUBLIC_WPGRAPHQL_ENDPOINT
+    }
+  },
+  routeRules: {
+    "/preview/**": { swr: false, cache: false },
+    "/**": { swr: 300 }
+  }
+});`
   },
   {
     path: "starter/nuxt/server/api/preview.ts",
     purpose: "Handle signed preview tokens and redirect editors into safe draft routes.",
-    stack: "Nuxt server route"
+    stack: "Nuxt server route",
+    category: "server-route",
+    raw: `export default defineEventHandler(async (event) => {
+  const token = getQuery(event).token;
+  const slug = getQuery(event).slug;
+  if (!token || !slug) {
+    throw createError({ statusCode: 400, statusMessage: "Missing preview payload" });
+  }
+  return sendRedirect(event, \`/preview/\${slug}?token=\${token}\`);
+});`
   },
   {
     path: "starter/nuxt/app.vue",
     purpose: "Provide the root shell and shared layout mount for the decoupled frontend.",
-    stack: "Vue"
+    stack: "Vue",
+    category: "vue",
+    raw: `<template>
+  <NuxtLayout>
+    <NuxtPage />
+  </NuxtLayout>
+</template>`
   },
   {
     path: "starter/wordpress/wp-content/mu-plugins/headless-preview-bridge.php",
     purpose: "Issue preview-safe URLs and align WordPress preview actions with the headless frontend.",
-    stack: "WordPress / PHP"
+    stack: "WordPress / PHP",
+    category: "wordpress",
+    raw: `<?php
+add_filter('preview_post_link', function ($preview_link, $post) {
+    $token = wp_create_nonce('headless-preview');
+    return sprintf('https://frontend.example/preview/%s?token=%s', $post->post_name, $token);
+}, 10, 2);`
   },
   {
     path: "starter/wpgraphql/content-map.json",
     purpose: "Document how post types and templates map into Vue route components.",
-    stack: "Schema contract"
+    stack: "Schema contract",
+    category: "schema",
+    raw: `{
+  "page": "PageTemplate",
+  "post": "ArticleTemplate",
+  "caseStudy": "CaseStudyTemplate",
+  "landingPage": "LandingPageTemplate"
+}`
   }
 ];
