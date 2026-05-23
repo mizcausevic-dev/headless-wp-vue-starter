@@ -20,5 +20,5 @@ The goal was to show that headless WordPress architecture belongs in the same co
 
 It also reinforces the broader public story:
 
-- Director of Web & GTM Systems
+- Boston Enterprise Technologist
 - Pipeline Scaling & Threat Mitigation
