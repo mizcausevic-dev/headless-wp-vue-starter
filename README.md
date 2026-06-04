@@ -1,6 +1,9 @@
 # Headless WP Vue Starter
 
-TypeScript control plane and starter export for headless WordPress + Vue delivery, preview flow, and WPGraphQL-backed route architecture.
+Board-ready Kinetic Gain surface and starter export for headless WordPress + Vue delivery, preview flow, and WPGraphQL-backed route architecture.
+
+- Live: [http://headless.kineticgain.com/](http://headless.kineticgain.com/)
+- Repo: [https://github.com/mizcausevic-dev/headless-wp-vue-starter](https://github.com/mizcausevic-dev/headless-wp-vue-starter)
 
 ## Why this exists
 
@@ -11,6 +14,13 @@ Headless CMS projects often look clean in a pitch deck and brittle in production
 - teams discover that “decoupled” only meant “harder to debug”
 
 `headless-wp-vue-starter` models the architecture needed to keep WordPress editorial-first while Vue owns speed, route rendering, and SEO control.
+
+## What it includes
+
+- TypeScript control plane for WordPress editorial flow, WPGraphQL contracts, preview bridging, and frontend delivery posture
+- starter export files across Nuxt, preview tokens, WordPress mu-plugins, and schema mapping
+- reusable outputs for architecture health, publish-flow latency, and integration ownership
+- prerendered static site, JSON payloads, screenshots, docs, and starter artifacts
 
 ## Routes
 
@@ -62,10 +72,8 @@ Open:
 
 ## Validation
 
-- `npm run build`
-- `npm run test`
-- `npm run demo`
-- `npm run smoke`
+- `npm run verify`
+- `npm run prerender`
 - `npm run render:assets`
 
 ## Docs
