@@ -354,6 +354,12 @@ function layout(title: string, activePath: string, body: string) {
         grid-template-columns: 1.42fr 0.68fr;
         gap: 24px;
       }
+      .depth-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 18px;
+        margin-top: 24px;
+      }
       .topology-card {
         padding: 28px;
       }
@@ -548,7 +554,7 @@ function layout(title: string, activePath: string, body: string) {
       @media (max-width: 1380px) {
         .metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
         .topnav { grid-template-columns: 1fr; }
-        .explorer-grid, .architecture-grid, .docs-grid { grid-template-columns: 1fr; }
+        .explorer-grid, .architecture-grid, .docs-grid, .depth-grid { grid-template-columns: 1fr; }
       }
       @media (max-width: 900px) {
         .masthead { grid-template-columns: 1fr; }
@@ -581,6 +587,44 @@ function layout(title: string, activePath: string, body: string) {
     </main>
   </body>
 </html>`;
+}
+
+function renderProductDepth() {
+  return `
+    <section class="section">
+      <article class="card">
+        <div class="section-eyebrow">Product depth</div>
+        <h2 class="section-title">Headless WordPress only works when editorial trust, schema control, and launch speed stay connected.</h2>
+        <p class="section-copy">This starter is not a generic Nuxt demo. It models the operating layer a SaaS, media, or B2B growth team needs when WordPress remains the editorial source of truth while Vue/Nuxt owns route performance, preview fidelity, structured data, and release-safe delivery.</p>
+      </article>
+      <div class="depth-grid">
+        <article class="card">
+          <div class="section-eyebrow">GTM analyst lens</div>
+          <h3 style="margin:12px 0 0;font-size:24px;">Protect launch velocity</h3>
+          <p class="section-copy" style="font-size:16px;">Campaign, pricing, SEO, and content teams can ship without waiting on fragile CMS/frontend handoffs or discovering preview mismatches after stakeholder review.</p>
+        </article>
+        <article class="card">
+          <div class="section-eyebrow">Value architect lens</div>
+          <h3 style="margin:12px 0 0;font-size:24px;">Reduce migration waste</h3>
+          <p class="section-copy" style="font-size:16px;">Clarifies which work belongs in WordPress, GraphQL contracts, Nuxt routes, preview auth, and edge cache rules before a headless rebuild becomes a custom-maintenance tax.</p>
+        </article>
+        <article class="card">
+          <div class="section-eyebrow">Technical buyer lens</div>
+          <h3 style="margin:12px 0 0;font-size:24px;">Make the contract explicit</h3>
+          <p class="section-copy" style="font-size:16px;">Keeps content types, route templates, preview tokens, cache posture, schema mapping, and starter files visible as concrete implementation artifacts.</p>
+        </article>
+        <article class="card">
+          <div class="section-eyebrow">Executive lens</div>
+          <h3 style="margin:12px 0 0;font-size:24px;">Explain the operating model</h3>
+          <p class="section-copy" style="font-size:16px;">Shows leaders why the decoupled build is faster, safer, and easier to govern than a vague CMS modernization promise.</p>
+        </article>
+      </div>
+      <article class="card" style="margin-top:24px;">
+        <div class="section-eyebrow">What these repos have in common</div>
+        <h2 class="section-title">Every Kinetic Gain surface turns a brittle operating lane into reusable decision evidence.</h2>
+        <p class="section-copy">This repo follows the suite pattern: define the messy handoff, expose the ownership model, attach proof artifacts, render a public surface, and provide machine-readable JSON so non-technical buyers and technical reviewers can inspect the same system story.</p>
+      </article>
+    </section>`;
 }
 
 export function renderOverview() {
@@ -662,7 +706,8 @@ export function renderOverview() {
           <pre class="code-panel">${esc(firstRaw.raw)}</pre>
         </div>
       </div>
-    </section>`;
+    </section>
+    ${renderProductDepth()}`;
 
   return layout("Headless WP Vue Starter", "/", body);
 }
@@ -929,6 +974,7 @@ export function renderArchitectureLane() {
         </aside>
       </div>
     </section>
+    ${renderProductDepth()}
     ${topologyScript()}`;
 
   return layout("Headless WP Vue Starter - Architecture Lane", "/architecture-lane", body);
@@ -976,7 +1022,8 @@ export function renderContentFlow() {
           <tbody>${rows}</tbody>
         </table>
       </article>
-    </section>`;
+    </section>
+    ${renderProductDepth()}`;
 
   return layout("Headless WP Vue Starter - Publish Flow Path", "/content-flow", body);
 }
@@ -993,7 +1040,8 @@ export function renderVerification() {
           ${verification().map((item) => `<li>${esc(item)}</li>`).join("")}
         </ul>
       </article>
-    </section>`;
+    </section>
+    ${renderProductDepth()}`;
 
   return layout("Headless WP Vue Starter - Operator Verification", "/verification", body);
 }
@@ -1052,7 +1100,8 @@ export function renderDocs() {
           </div>
         </aside>
       </div>
-    </section>`;
+    </section>
+    ${renderProductDepth()}`;
 
   return layout("Headless WP Vue Starter - Integration Docs", "/docs", body);
 }

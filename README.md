@@ -22,6 +22,19 @@ Headless CMS projects often look clean in a pitch deck and brittle in production
 - reusable outputs for architecture health, publish-flow latency, and integration ownership
 - prerendered static site, JSON payloads, screenshots, docs, and starter artifacts
 
+## What this product does
+
+Headless WP Vue Starter is a production-readiness proof surface for teams that want WordPress editorial control without accepting slow pages, broken previews, or unclear ownership between CMS and frontend layers.
+
+- **SaaS GTM analyst view:** protects launch velocity for pricing pages, campaign pages, SEO content, and product narratives by making preview, routing, metadata, and cache behavior visible before release.
+- **SaaS value architect view:** reduces migration waste by showing which responsibilities belong in WordPress, WPGraphQL, Nuxt/Vue, preview-token handling, edge cache, and deployment checks.
+- **Technical buyer view:** provides concrete starter artifacts for Nuxt, preview bridging, mu-plugins, and schema mapping instead of leaving the architecture as a diagram.
+- **Executive narrative:** explains how a decoupled CMS model can be faster, safer, and easier to govern when the operating contract is explicit.
+
+## What these repos have in common
+
+This repo follows the broader Kinetic Gain pattern: turn brittle operating handoffs into reusable decision evidence. Each surface names the risk, maps the owners, ships proof artifacts, exposes JSON, and gives both non-technical buyers and technical reviewers a shared way to inspect the same system story.
+
 ## Routes
 
 - `/`
